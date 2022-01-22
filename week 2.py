@@ -58,3 +58,4 @@
 
 ## 변수 Mission: input()응용하기, 속으로 10초를 세어 맞히는 프로그램
 import time
+d
