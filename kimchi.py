@@ -1,6 +1,21 @@
-print("happy new year")
-a = 304
-b = 334
-c =-162
-d = a*b*(c+a-c)
-print(a)
+import turtle as t
+t.shape("turtle")
+t.fd(100)
+t.left(72)
+t.fd(100)
+t.right(144)
+t.fd(100)
+t.left(72)
+t.fd(100)
+t.right(144)
+t.fd(100)
+t.left(72)
+t.fd(100)
+t.right(144)
+t.fd(100)
+t.left(72)
+t.fd(100)
+t.right(144)
+t.fd(100)
+t.left(72)
+t.fd(100)
