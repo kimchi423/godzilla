@@ -58,4 +58,8 @@
 
 ## 변수 Mission: input()응용하기, 속으로 10초를 세어 맞히는 프로그램
 import time
-d
+input("10초 시작>>")
+a = time.time()
+input("10초 끝>>")
+b = time.time()
+print(b-a)
