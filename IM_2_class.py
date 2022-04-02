@@ -80,7 +80,7 @@ print(f"{character1_name}님 소환사의 협곡에 오신 것을 환영합니�
 character_info(character2_name, character2_attack, character2_health, character2_speed)
 '''
 ## >> 캐릭터를 하나 만들 때마다 작성해야 하는 코드가 많고 복붙해서 수정하기도 귀찮다...
-
+'''''
 
 ## ○ case2: class를 사용한 경우
 # Character class 정의해주기
@@ -117,7 +117,7 @@ sdsd = Character("레",609,80508,8484834908234890)
 # 첫번째 캐릭터의 character_info() 메서드 호출
 # 두번째 캐릭터의 character_info() 메서드 호출
 gg.basic_info()
-
+'''
 ## <class 생성 및 호출>
 ## <class 생성 문법>
 ## class 클래스 이름:
@@ -204,9 +204,17 @@ print(d.__dir__())
 ## step1) 부모 클래스: Monster 클래스 정의하기
 ## - 속성: name, health, attack
 ## - 메서드: move("self.name 지상에서 이동하기"를 출력하는 메서드, 이후 해당 몬스터의 이동방법이 출력되도록 할 것임.)
-'''
-<Monster class 작성하기>
-'''
+
+# <Monster class 작성하기>
+class monster:
+    def __init__(self,name,attack,health):
+        self.name = name
+        self.attack = attack
+        self.health = health
+    def move(self):
+        print(f"[{self.name}]지상에서 이동하기")
+
+
 
 ## step2) 자식 클래스: Wolf, Shark, Dragon
 ## - Monster 클래스를 상속 받을 것.
@@ -215,7 +223,29 @@ print(d.__dir__())
 <Moster class를 상속받은 Wolf, Shark, Dragon class 작성하기>
 
 <각 class들로 객체 만든 후, move 메서드 호출하기>
+
+class wolf(monster):
+    pass
+
+class shark(monster):
+    def move(self):
+        print(f"[{self.name}]해상에서 이동하기")
+class dragon(monster):
+    def move(self):
+        print(f"[{self.name}]상공에서 이동하기")
+
+
+wolf= wolf("울프",100,100)
+shark = shark("tizm",100,100)
+dragon = dragon("tiddzm",100,100)
+
+wolf.move()
+shark.move()
+dragon.move()
+
 '''
+
+
 
 
 
@@ -271,9 +301,34 @@ dragon.skill()
 dragon.skill()
 dragon.skill()
 print(dragon.number)
-'''
+
 
 ## class Mission: 아이템 구성안과 설계도를 활용하여, class와 객체를 생성해 보자
 ## 이때, 부모 클래스: Item // 자식 클래스: WearableItem, UsableItem 이다.
 
+'''
+class item:
+    item_num = 500
+    def __init__(self,name,price,weight,work,drop):
+        self.name = name
+        self.price = price
+        self.weight = weight
+        self.work = work
+        self.drop = drop
+        self.item_num -= 1
+    def displyitem(self):
+        print(f"[{self.name}]")
+        print(f"가격:{self.price}")
+        print(f"무게:{self.weight}")
+        print(f"설명:{self.work}")
+    def sale(self):
+        print(f"{self.name} 판매되었습니다. {self.price}가 지급됩니다")
+    def drop(self):
+        if self.drop == "T":
+            print(f"{self.name}은 버릴 수 있는 아이템 입니다 ")
+        else:
+            print(f"{self.name}은 버릴 수 없는 아이템 입니다 ")
 
+a = item("김치",10000000,100,"매운맛","T")
+a.displyitem()
+a.drop()
