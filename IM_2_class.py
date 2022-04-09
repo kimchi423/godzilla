@@ -206,14 +206,14 @@ print(d.__dir__())
 ## - 메서드: move("self.name 지상에서 이동하기"를 출력하는 메서드, 이후 해당 몬스터의 이동방법이 출력되도록 할 것임.)
 
 # <Monster class 작성하기>
-class monster:
-    def __init__(self,name,attack,health):
-        self.name = name
-        self.attack = attack
-        self.health = health
-    def move(self):
-        print(f"[{self.name}]지상에서 이동하기")
-
+# class monster:
+#     def __init__(self,name,attack,health):
+#         self.name = name
+#         self.attack = attack
+#         self.health = health
+#     def move(self):
+#         print(f"[{self.name}]지상에서 이동하기")
+#
 
 
 ## step2) 자식 클래스: Wolf, Shark, Dragon
@@ -323,12 +323,57 @@ class item:
         print(f"설명:{self.work}")
     def sale(self):
         print(f"{self.name} 판매되었습니다. {self.price}가 지급됩니다")
-    def drop(self):
-        if self.drop == "T":
-            print(f"{self.name}은 버릴 수 있는 아이템 입니다 ")
-        else:
-            print(f"{self.name}은 버릴 수 없는 아이템 입니다 ")
+    # def drop(self):
+    #     if self.drop == 1:
+    #         print(f"{self.name}은 버릴 수 있는 아이템 입니다 ")
+    #     else:
+    #         print(f"{self.name}은 버릴 수 없는 아이템 입니다 ")
 
-a = item("김치",10000000,100,"매운맛","T")
+a = item("김치",10000000,100,"매운맛",1)
 a.displyitem()
-a.drop()
+# a.drop()
+
+
+class wearitem(item):
+    def __init__(self, name, price, weight, work, drop,effect):
+        super().__init__(name,price,weight,work,drop)
+        self.effect = effect
+    def wear(self):
+        print(f"{self.name}을 입었습니다 방어력이{self.effect}만큼 올라갔습니다")
+
+
+class useitem(item):
+    def __init__(self, name, price, weight, work, drop,effect):
+        super().__init__(name,price,weight,work,drop)
+        self.effect = effect
+    def use(self):
+        print(f"{self.name}을 장착습니다 공격력이{self.effect}만큼 올라갔습니다")
+
+
+
+iron_armor = wearitem("ww",10000000,111,"ㅇㅇㅇㅇttㅇㅇㅇㅇㅇ",1,100000000)
+iron_armor.displyitem()
+iron_armor.wear()
+
+iron_warmor = wearitem("ww",10000000,111,"ㅇㅇㅇㅇㅇㅇeeㅇㅇㅇ",1,100000000)
+iron_warmor.displyitem()
+iron_warmor.wear()
+
+iron_earmor = wearitem("ww",10000000,111,"ㅇㅇㅇㅇㅇeㅇㅇㅇㅇ",1,100000000)
+iron_earmor.displyitem()
+iron_earmor.wear()
+
+iron_armdor = wearitem("ww",10000000,111,"ㅇㅇㅇㅇㅇㅇㅇㅇㅇ",1,100000000)
+iron_armdor.displyitem()
+iron_armdor.wear()
+
+iron_waraamor = useitem("ww",10000000,111,"ㅇㅇgwgeㅇㅇㅇㅇㅇㅇㅇ",1,100000000)
+iron_waraamor.displyitem()
+iron_waraamor.use()
+
+iron_eareemor = useitem("ww",10000000,111,"ㅇㅇㅇㅇㅇㅇㅇgergㅇㅇ",1,1100000000)
+iron_eareemor.displyitem()
+iron_eareemor.use()
+# dfksdksdk = wearitem()
+#
+# ksnlskskfkfjkfdkfdfk = wearitem()
